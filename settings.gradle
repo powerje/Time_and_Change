@@ -19,3 +19,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Time_and_Change"
 include ':app'
+include ':watchface'

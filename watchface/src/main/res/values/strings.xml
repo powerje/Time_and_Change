@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="watch_face_name">Time &amp; Change</string>
+    <string name="background_setting">Background</string>
+    <string name="bg_black">Black</string>
+    <string name="bg_gray">Gray</string>
+    <string name="bg_light">Light Gray</string>
+    <string name="bg_white">White</string>
+    <string name="flavor_dark">Dark</string>
+    <string name="flavor_dark_gray">Dark Gray</string>
+    <string name="flavor_light_gray">Light Gray</string>
+    <string name="flavor_light">Light</string>
+</resources>

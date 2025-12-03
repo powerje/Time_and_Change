@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WatchFace width="450" height="450">
+    <Metadata key="CLOCK_TYPE" value="DIGITAL"/>
+    <Metadata key="PREVIEW_TIME" value="10:56:00"/>
+
+    <UserConfigurations>
+        <ListConfiguration id="bg_color" displayName="background_setting" icon="background_icon" defaultValue="bg_black" screenReaderText="background_setting">
+            <ListOption id="bg_black" displayName="bg_black" icon="background_icon" screenReaderText="bg_black"/>
+            <ListOption id="bg_gray" displayName="bg_gray" icon="background_icon" screenReaderText="bg_gray"/>
+            <ListOption id="bg_light" displayName="bg_light" icon="background_icon" screenReaderText="bg_light"/>
+            <ListOption id="bg_white" displayName="bg_white" icon="background_icon" screenReaderText="bg_white"/>
+        </ListConfiguration>
+        <Flavor id="flavor_black" displayName="flavor_dark" icon="background_icon" screenReaderText="flavor_dark">
+            <Configuration id="bg_color" optionId="bg_black"/>
+        </Flavor>
+        <Flavor id="flavor_gray" displayName="flavor_dark_gray" icon="background_icon" screenReaderText="flavor_dark_gray">
+            <Configuration id="bg_color" optionId="bg_gray"/>
+        </Flavor>
+        <Flavor id="flavor_light" displayName="flavor_light_gray" icon="background_icon" screenReaderText="flavor_light_gray">
+            <Configuration id="bg_color" optionId="bg_light"/>
+        </Flavor>
+        <Flavor id="flavor_white" displayName="flavor_light" icon="background_icon" screenReaderText="flavor_light">
+            <Configuration id="bg_color" optionId="bg_white"/>
+        </Flavor>
+    </UserConfigurations>
+
+    <Scene backgroundColor="#ff000000">
+        <!-- Background selection using ListConfiguration inside Scene -->
+        <ListConfiguration id="bg_color">
+            <ListOption id="bg_black">
+                <!-- Black is the Scene background, no need to draw anything -->
+            </ListOption>
+            <ListOption id="bg_gray">
+                <PartDraw x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0"/>
+                    <Arc centerX="225" centerY="225" width="450" height="450" startAngle="0" endAngle="360">
+                        <Fill color="#ff333333"/>
+                    </Arc>
+                </PartDraw>
+            </ListOption>
+            <ListOption id="bg_light">
+                <PartDraw x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0"/>
+                    <Arc centerX="225" centerY="225" width="450" height="450" startAngle="0" endAngle="360">
+                        <Fill color="#ffe0e0e0"/>
+                    </Arc>
+                </PartDraw>
+            </ListOption>
+            <ListOption id="bg_white">
+                <PartDraw x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0"/>
+                    <Arc centerX="225" centerY="225" width="450" height="450" startAngle="0" endAngle="360">
+                        <Fill color="#ffffffff"/>
+                    </Arc>
+                </PartDraw>
+            </ListOption>
+        </ListConfiguration>
+
+        <!-- Time display -->
+        <DigitalClock x="0" y="0" width="450" height="450">
+            <!-- Interactive mode time -->
+            <TimeText format="h:mm" hourFormat="12" align="CENTER"
+                      x="0" y="18" width="450" height="70" alpha="255">
+                <Variant mode="AMBIENT" target="alpha" value="0"/>
+                <Font family="roboto_condensed_light" size="68" weight="NORMAL" slant="NORMAL" color="#ffba2025"/>
+            </TimeText>
+            <!-- Ambient mode time -->
+            <TimeText format="h:mm" hourFormat="12" align="CENTER"
+                      x="0" y="18" width="450" height="70" alpha="0">
+                <Variant mode="AMBIENT" target="alpha" value="255"/>
+                <Font family="roboto_condensed_light" size="68" weight="NORMAL" slant="NORMAL" color="#ffefefef"/>
+            </TimeText>
+        </DigitalClock>
+
+        <!-- Text colors based on background -->
+        <ListConfiguration id="bg_color">
+            <!-- Dark backgrounds: gray text -->
+            <ListOption id="bg_black">
+                <PartText x="0" y="82" width="450" height="95">
+                    <Variant mode="AMBIENT" target="alpha" value="0"/>
+                    <Text align="CENTER">
+                        <Font family="roboto_light" size="88" weight="NORMAL" slant="NORMAL" color="#ffb2b2b2">AND</Font>
+                    </Text>
+                </PartText>
+                <PartText x="0" y="172" width="450" height="40">
+                    <Variant mode="AMBIENT" target="alpha" value="0"/>
+                    <Text align="CENTER">
+                        <Font family="roboto_light" size="36" weight="NORMAL" slant="NORMAL" color="#ffb2b2b2">MICHIGAN</Font>
+                    </Text>
+                </PartText>
+                <PartText x="0" y="208" width="450" height="60">
+                    <Variant mode="AMBIENT" target="alpha" value="0"/>
+                    <Text align="CENTER">
+                        <Font family="roboto_light" size="68" weight="NORMAL" slant="NORMAL" color="#ffb2b2b2">STILL</Font>
+                    </Text>
+                </PartText>
+                <PartText x="0" y="265" width="450" height="60">
+                    <Variant mode="AMBIENT" target="alpha" value="0"/>
+                    <Text align="CENTER">
+                        <Font family="roboto_light" size="56" weight="NORMAL" slant="NORMAL" color="#ffb2b2b2">SUCKS</Font>
+                    </Text>
+                </PartText>
+            </ListOption>
+            <ListOption id="bg_gray">
+                <PartText x="0" y="82" width="450" height="95">
+                    <Variant mode="AMBIENT" target="alpha" value="0"/>
+                    <Text align="CENTER">
+                        <Font family="roboto_light" size="88" weight="NORMAL" slant="NORMAL" color="#ffb2b2b2">AND</Font>
+                    </Text>
+                </PartText>
+                <PartText x="0" y="172" width="450" height="40">
+                    <Variant mode="AMBIENT" target="alpha" value="0"/>
+                    <Text align="CENTER">
+                        <Font family="roboto_light" size="36" weight="NORMAL" slant="NORMAL" color="#ffb2b2b2">MICHIGAN</Font>
+                    </Text>
+                </PartText>
+                <PartText x="0" y="208" width="450" height="60">
+                    <Variant mode="AMBIENT" target="alpha" value="0"/>
+                    <Text align="CENTER">
+                        <Font family="roboto_light" size="68" weight="NORMAL" slant="NORMAL" color="#ffb2b2b2">STILL</Font>
+                    </Text>
+                </PartText>
+                <PartText x="0" y="265" width="450" height="60">
+                    <Variant mode="AMBIENT" target="alpha" value="0"/>
+                    <Text align="CENTER">
+                        <Font family="roboto_light" size="56" weight="NORMAL" slant="NORMAL" color="#ffb2b2b2">SUCKS</Font>
+                    </Text>
+                </PartText>
+            </ListOption>
+            <!-- Light backgrounds: dark text -->
+            <ListOption id="bg_light">
+                <PartText x="0" y="82" width="450" height="95">
+                    <Variant mode="AMBIENT" target="alpha" value="0"/>
+                    <Text align="CENTER">
+                        <Font family="roboto_light" size="88" weight="NORMAL" slant="NORMAL" color="#ff333333">AND</Font>
+                    </Text>
+                </PartText>
+                <PartText x="0" y="172" width="450" height="40">
+                    <Variant mode="AMBIENT" target="alpha" value="0"/>
+                    <Text align="CENTER">
+                        <Font family="roboto_light" size="36" weight="NORMAL" slant="NORMAL" color="#ff333333">MICHIGAN</Font>
+                    </Text>
+                </PartText>
+                <PartText x="0" y="208" width="450" height="60">
+                    <Variant mode="AMBIENT" target="alpha" value="0"/>
+                    <Text align="CENTER">
+                        <Font family="roboto_light" size="68" weight="NORMAL" slant="NORMAL" color="#ff333333">STILL</Font>
+                    </Text>
+                </PartText>
+                <PartText x="0" y="265" width="450" height="60">
+                    <Variant mode="AMBIENT" target="alpha" value="0"/>
+                    <Text align="CENTER">
+                        <Font family="roboto_light" size="56" weight="NORMAL" slant="NORMAL" color="#ff333333">SUCKS</Font>
+                    </Text>
+                </PartText>
+            </ListOption>
+            <ListOption id="bg_white">
+                <PartText x="0" y="82" width="450" height="95">
+                    <Variant mode="AMBIENT" target="alpha" value="0"/>
+                    <Text align="CENTER">
+                        <Font family="roboto_light" size="88" weight="NORMAL" slant="NORMAL" color="#ff333333">AND</Font>
+                    </Text>
+                </PartText>
+                <PartText x="0" y="172" width="450" height="40">
+                    <Variant mode="AMBIENT" target="alpha" value="0"/>
+                    <Text align="CENTER">
+                        <Font family="roboto_light" size="36" weight="NORMAL" slant="NORMAL" color="#ff333333">MICHIGAN</Font>
+                    </Text>
+                </PartText>
+                <PartText x="0" y="208" width="450" height="60">
+                    <Variant mode="AMBIENT" target="alpha" value="0"/>
+                    <Text align="CENTER">
+                        <Font family="roboto_light" size="68" weight="NORMAL" slant="NORMAL" color="#ff333333">STILL</Font>
+                    </Text>
+                </PartText>
+                <PartText x="0" y="265" width="450" height="60">
+                    <Variant mode="AMBIENT" target="alpha" value="0"/>
+                    <Text align="CENTER">
+                        <Font family="roboto_light" size="56" weight="NORMAL" slant="NORMAL" color="#ff333333">SUCKS</Font>
+                    </Text>
+                </PartText>
+            </ListOption>
+        </ListConfiguration>
+
+        <!-- Ambient text (always white on black) -->
+        <PartText x="0" y="82" width="450" height="95" alpha="0">
+            <Variant mode="AMBIENT" target="alpha" value="255"/>
+            <Text align="CENTER">
+                <Font family="roboto_light" size="88" weight="NORMAL" slant="NORMAL" color="#ffefefef">AND</Font>
+            </Text>
+        </PartText>
+        <PartText x="0" y="172" width="450" height="40" alpha="0">
+            <Variant mode="AMBIENT" target="alpha" value="255"/>
+            <Text align="CENTER">
+                <Font family="roboto_light" size="36" weight="NORMAL" slant="NORMAL" color="#ffefefef">MICHIGAN</Font>
+            </Text>
+        </PartText>
+        <PartText x="0" y="208" width="450" height="60" alpha="0">
+            <Variant mode="AMBIENT" target="alpha" value="255"/>
+            <Text align="CENTER">
+                <Font family="roboto_light" size="68" weight="NORMAL" slant="NORMAL" color="#ffefefef">STILL</Font>
+            </Text>
+        </PartText>
+        <PartText x="0" y="265" width="450" height="60" alpha="0">
+            <Variant mode="AMBIENT" target="alpha" value="255"/>
+            <Text align="CENTER">
+                <Font family="roboto_light" size="56" weight="NORMAL" slant="NORMAL" color="#ffefefef">SUCKS</Font>
+            </Text>
+        </PartText>
+
+        <!-- Block O - large, centered -->
+        <PartImage x="140" y="330" width="170" height="224">
+            <Variant mode="AMBIENT" target="alpha" value="0"/>
+            <Image resource="block_o"/>
+        </PartImage>
+
+        <!-- Block O - Ambient mode -->
+        <PartImage x="140" y="330" width="170" height="224" alpha="0">
+            <Variant mode="AMBIENT" target="alpha" value="255"/>
+            <Image resource="block_o_ambient"/>
+        </PartImage>
+    </Scene>
+</WatchFace>
