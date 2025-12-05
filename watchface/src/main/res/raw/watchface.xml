@@ -287,7 +287,7 @@
                                 <Variant mode="AMBIENT" target="alpha" value="0"/>
                                 <Text align="CENTER">
                                     <Font family="roboto" size="20" weight="LIGHT" slant="NORMAL" color="#ffe0e0e0">
-                                        <Template>%S %S %02d<Parameter expression="[DAY_OF_WEEK_S]"/><Parameter expression="[MONTH_S]"/><Parameter expression="[DAY_OF_MONTH] + 1"/></Template>
+                                        <Template>%S %S %02d<Parameter expression="[DAY_OF_WEEK_S]"/><Parameter expression="[MONTH_S]"/><Parameter expression="[DAY]"/></Template>
                                     </Font>
                                 </Text>
                             </PartText>
@@ -297,7 +297,7 @@
                                 <Variant mode="AMBIENT" target="alpha" value="0"/>
                                 <Text align="CENTER">
                                     <Font family="roboto" size="20" weight="LIGHT" slant="NORMAL" color="#ff000000">
-                                        <Template>%S %S %02d<Parameter expression="[DAY_OF_WEEK_S]"/><Parameter expression="[MONTH_S]"/><Parameter expression="[DAY_OF_MONTH] + 1"/></Template>
+                                        <Template>%S %S %02d<Parameter expression="[DAY_OF_WEEK_S]"/><Parameter expression="[MONTH_S]"/><Parameter expression="[DAY]"/></Template>
                                     </Font>
                                 </Text>
                             </PartText>
