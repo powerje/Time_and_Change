@@ -260,32 +260,14 @@
                 <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="202.3" startY="9.2" endX="201.5" endY="1.2"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
 
                 <!-- Date display at top -->
-                <ListConfiguration id="bg_color">
-                    <ListOption id="bg_black">
-                        <PartText x="0" y="95" width="450" height="30">
-                            <Variant mode="AMBIENT" target="alpha" value="0"/>
-                            <Text align="CENTER" format="EEE MMM dd"><Font family="roboto_light" size="22" color="#ffb2b2b2"/></Text>
-                        </PartText>
-                    </ListOption>
-                    <ListOption id="bg_gray">
-                        <PartText x="0" y="95" width="450" height="30">
-                            <Variant mode="AMBIENT" target="alpha" value="0"/>
-                            <Text align="CENTER" format="EEE MMM dd"><Font family="roboto_light" size="22" color="#ffb2b2b2"/></Text>
-                        </PartText>
-                    </ListOption>
-                    <ListOption id="bg_light">
-                        <PartText x="0" y="95" width="450" height="30">
-                            <Variant mode="AMBIENT" target="alpha" value="0"/>
-                            <Text align="CENTER" format="EEE MMM dd"><Font family="roboto_light" size="22" color="#ff333333"/></Text>
-                        </PartText>
-                    </ListOption>
-                    <ListOption id="bg_white">
-                        <PartText x="0" y="95" width="450" height="30">
-                            <Variant mode="AMBIENT" target="alpha" value="0"/>
-                            <Text align="CENTER" format="EEE MMM dd"><Font family="roboto_light" size="22" color="#ff333333"/></Text>
-                        </PartText>
-                    </ListOption>
-                </ListConfiguration>
+                <PartText x="0" y="95" width="450" height="30">
+                    <Variant mode="AMBIENT" target="alpha" value="0"/>
+                    <Text align="CENTER">
+                        <Font family="roboto_condensed_light" size="22" weight="NORMAL" slant="NORMAL" color="#ffb2b2b2">
+                            <Template>%S %S %02d<Parameter expression="[DAY_OF_WEEK_S]"/><Parameter expression="[MONTH_S]"/><Parameter expression="[DAY_OF_MONTH] + 1"/></Template>
+                        </Font>
+                    </Text>
+                </PartText>
 
                 <!-- Curved text - based on message and background -->
                 <ListConfiguration id="message">
