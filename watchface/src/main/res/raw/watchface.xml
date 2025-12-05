@@ -4,32 +4,51 @@
     <Metadata key="PREVIEW_TIME" value="10:56:00"/>
 
     <UserConfigurations>
+        <!-- Style: Digital or Analog -->
+        <ListConfiguration id="watch_style" displayName="style_setting" icon="background_icon" defaultValue="style_digital" screenReaderText="style_setting">
+            <ListOption id="style_digital" displayName="style_digital" icon="background_icon" screenReaderText="style_digital"/>
+            <ListOption id="style_analog" displayName="style_analog" icon="background_icon" screenReaderText="style_analog"/>
+        </ListConfiguration>
+
+        <!-- Background color -->
         <ListConfiguration id="bg_color" displayName="background_setting" icon="background_icon" defaultValue="bg_black" screenReaderText="background_setting">
             <ListOption id="bg_black" displayName="bg_black" icon="background_icon" screenReaderText="bg_black"/>
             <ListOption id="bg_gray" displayName="bg_gray" icon="background_icon" screenReaderText="bg_gray"/>
             <ListOption id="bg_light" displayName="bg_light" icon="background_icon" screenReaderText="bg_light"/>
             <ListOption id="bg_white" displayName="bg_white" icon="background_icon" screenReaderText="bg_white"/>
         </ListConfiguration>
-        <Flavor id="flavor_black" displayName="flavor_dark" icon="background_icon" screenReaderText="flavor_dark">
+
+        <!-- Message (for analog) -->
+        <ListConfiguration id="message" displayName="message_setting" icon="background_icon" defaultValue="msg_michigan" screenReaderText="message_setting">
+            <ListOption id="msg_michigan" displayName="msg_michigan" icon="background_icon" screenReaderText="msg_michigan"/>
+            <ListOption id="msg_friendship" displayName="msg_friendship" icon="background_icon" screenReaderText="msg_friendship"/>
+        </ListConfiguration>
+
+        <!-- Flavors for quick selection -->
+        <Flavor id="flavor_digital_black" displayName="flavor_digital_dark" icon="background_icon" screenReaderText="flavor_digital_dark">
+            <Configuration id="watch_style" optionId="style_digital"/>
             <Configuration id="bg_color" optionId="bg_black"/>
         </Flavor>
-        <Flavor id="flavor_gray" displayName="flavor_dark_gray" icon="background_icon" screenReaderText="flavor_dark_gray">
-            <Configuration id="bg_color" optionId="bg_gray"/>
-        </Flavor>
-        <Flavor id="flavor_light" displayName="flavor_light_gray" icon="background_icon" screenReaderText="flavor_light_gray">
-            <Configuration id="bg_color" optionId="bg_light"/>
-        </Flavor>
-        <Flavor id="flavor_white" displayName="flavor_light" icon="background_icon" screenReaderText="flavor_light">
+        <Flavor id="flavor_digital_white" displayName="flavor_digital_light" icon="background_icon" screenReaderText="flavor_digital_light">
+            <Configuration id="watch_style" optionId="style_digital"/>
             <Configuration id="bg_color" optionId="bg_white"/>
+        </Flavor>
+        <Flavor id="flavor_analog_black" displayName="flavor_analog_dark" icon="background_icon" screenReaderText="flavor_analog_dark">
+            <Configuration id="watch_style" optionId="style_analog"/>
+            <Configuration id="bg_color" optionId="bg_black"/>
+            <Configuration id="message" optionId="msg_michigan"/>
+        </Flavor>
+        <Flavor id="flavor_analog_white" displayName="flavor_analog_light" icon="background_icon" screenReaderText="flavor_analog_light">
+            <Configuration id="watch_style" optionId="style_analog"/>
+            <Configuration id="bg_color" optionId="bg_white"/>
+            <Configuration id="message" optionId="msg_michigan"/>
         </Flavor>
     </UserConfigurations>
 
     <Scene backgroundColor="#ff000000">
-        <!-- Background selection using ListConfiguration inside Scene -->
+        <!-- Background selection -->
         <ListConfiguration id="bg_color">
-            <ListOption id="bg_black">
-                <!-- Black is the Scene background, no need to draw anything -->
-            </ListOption>
+            <ListOption id="bg_black"/>
             <ListOption id="bg_gray">
                 <PartDraw x="0" y="0" width="450" height="450">
                     <Variant mode="AMBIENT" target="alpha" value="0"/>
@@ -56,168 +75,267 @@
             </ListOption>
         </ListConfiguration>
 
-        <!-- Time display -->
-        <DigitalClock x="0" y="0" width="450" height="450">
-            <!-- Interactive mode time -->
-            <TimeText format="h:mm" hourFormat="12" align="CENTER"
-                      x="0" y="18" width="450" height="70" alpha="255">
-                <Variant mode="AMBIENT" target="alpha" value="0"/>
-                <Font family="roboto_condensed_light" size="68" weight="NORMAL" slant="NORMAL" color="#ffba2025"/>
-            </TimeText>
-            <!-- Ambient mode time -->
-            <TimeText format="h:mm" hourFormat="12" align="CENTER"
-                      x="0" y="18" width="450" height="70" alpha="0">
-                <Variant mode="AMBIENT" target="alpha" value="255"/>
-                <Font family="roboto_condensed_light" size="68" weight="NORMAL" slant="NORMAL" color="#ffefefef"/>
-            </TimeText>
-        </DigitalClock>
+        <!-- ==================== DIGITAL STYLE ==================== -->
+        <ListConfiguration id="watch_style">
+            <ListOption id="style_digital">
+                <DigitalClock x="0" y="0" width="450" height="450">
+                    <TimeText format="h:mm" hourFormat="12" align="CENTER"
+                              x="0" y="18" width="450" height="70" alpha="255">
+                        <Variant mode="AMBIENT" target="alpha" value="0"/>
+                        <Font family="roboto_condensed_light" size="68" weight="NORMAL" slant="NORMAL" color="#ffba2025"/>
+                    </TimeText>
+                    <TimeText format="h:mm" hourFormat="12" align="CENTER"
+                              x="0" y="18" width="450" height="70" alpha="0">
+                        <Variant mode="AMBIENT" target="alpha" value="255"/>
+                        <Font family="roboto_condensed_light" size="68" weight="NORMAL" slant="NORMAL" color="#ffefefef"/>
+                    </TimeText>
+                </DigitalClock>
 
-        <!-- Text colors based on background -->
-        <ListConfiguration id="bg_color">
-            <!-- Dark backgrounds: gray text -->
-            <ListOption id="bg_black">
-                <PartText x="0" y="82" width="450" height="95">
-                    <Variant mode="AMBIENT" target="alpha" value="0"/>
-                    <Text align="CENTER">
-                        <Font family="roboto_light" size="88" weight="NORMAL" slant="NORMAL" color="#ffb2b2b2">AND</Font>
-                    </Text>
+                <ListConfiguration id="bg_color">
+                    <ListOption id="bg_black">
+                        <PartText x="0" y="82" width="450" height="95">
+                            <Variant mode="AMBIENT" target="alpha" value="0"/>
+                            <Text align="CENTER"><Font family="roboto_light" size="88" color="#ffb2b2b2">AND</Font></Text>
+                        </PartText>
+                        <PartText x="0" y="172" width="450" height="40">
+                            <Variant mode="AMBIENT" target="alpha" value="0"/>
+                            <Text align="CENTER"><Font family="roboto_light" size="36" color="#ffb2b2b2">MICHIGAN</Font></Text>
+                        </PartText>
+                        <PartText x="0" y="208" width="450" height="60">
+                            <Variant mode="AMBIENT" target="alpha" value="0"/>
+                            <Text align="CENTER"><Font family="roboto_light" size="68" color="#ffb2b2b2">STILL</Font></Text>
+                        </PartText>
+                        <PartText x="0" y="265" width="450" height="60">
+                            <Variant mode="AMBIENT" target="alpha" value="0"/>
+                            <Text align="CENTER"><Font family="roboto_light" size="56" color="#ffb2b2b2">SUCKS</Font></Text>
+                        </PartText>
+                    </ListOption>
+                    <ListOption id="bg_gray">
+                        <PartText x="0" y="82" width="450" height="95">
+                            <Variant mode="AMBIENT" target="alpha" value="0"/>
+                            <Text align="CENTER"><Font family="roboto_light" size="88" color="#ffb2b2b2">AND</Font></Text>
+                        </PartText>
+                        <PartText x="0" y="172" width="450" height="40">
+                            <Variant mode="AMBIENT" target="alpha" value="0"/>
+                            <Text align="CENTER"><Font family="roboto_light" size="36" color="#ffb2b2b2">MICHIGAN</Font></Text>
+                        </PartText>
+                        <PartText x="0" y="208" width="450" height="60">
+                            <Variant mode="AMBIENT" target="alpha" value="0"/>
+                            <Text align="CENTER"><Font family="roboto_light" size="68" color="#ffb2b2b2">STILL</Font></Text>
+                        </PartText>
+                        <PartText x="0" y="265" width="450" height="60">
+                            <Variant mode="AMBIENT" target="alpha" value="0"/>
+                            <Text align="CENTER"><Font family="roboto_light" size="56" color="#ffb2b2b2">SUCKS</Font></Text>
+                        </PartText>
+                    </ListOption>
+                    <ListOption id="bg_light">
+                        <PartText x="0" y="82" width="450" height="95">
+                            <Variant mode="AMBIENT" target="alpha" value="0"/>
+                            <Text align="CENTER"><Font family="roboto_light" size="88" color="#ff333333">AND</Font></Text>
+                        </PartText>
+                        <PartText x="0" y="172" width="450" height="40">
+                            <Variant mode="AMBIENT" target="alpha" value="0"/>
+                            <Text align="CENTER"><Font family="roboto_light" size="36" color="#ff333333">MICHIGAN</Font></Text>
+                        </PartText>
+                        <PartText x="0" y="208" width="450" height="60">
+                            <Variant mode="AMBIENT" target="alpha" value="0"/>
+                            <Text align="CENTER"><Font family="roboto_light" size="68" color="#ff333333">STILL</Font></Text>
+                        </PartText>
+                        <PartText x="0" y="265" width="450" height="60">
+                            <Variant mode="AMBIENT" target="alpha" value="0"/>
+                            <Text align="CENTER"><Font family="roboto_light" size="56" color="#ff333333">SUCKS</Font></Text>
+                        </PartText>
+                    </ListOption>
+                    <ListOption id="bg_white">
+                        <PartText x="0" y="82" width="450" height="95">
+                            <Variant mode="AMBIENT" target="alpha" value="0"/>
+                            <Text align="CENTER"><Font family="roboto_light" size="88" color="#ff333333">AND</Font></Text>
+                        </PartText>
+                        <PartText x="0" y="172" width="450" height="40">
+                            <Variant mode="AMBIENT" target="alpha" value="0"/>
+                            <Text align="CENTER"><Font family="roboto_light" size="36" color="#ff333333">MICHIGAN</Font></Text>
+                        </PartText>
+                        <PartText x="0" y="208" width="450" height="60">
+                            <Variant mode="AMBIENT" target="alpha" value="0"/>
+                            <Text align="CENTER"><Font family="roboto_light" size="68" color="#ff333333">STILL</Font></Text>
+                        </PartText>
+                        <PartText x="0" y="265" width="450" height="60">
+                            <Variant mode="AMBIENT" target="alpha" value="0"/>
+                            <Text align="CENTER"><Font family="roboto_light" size="56" color="#ff333333">SUCKS</Font></Text>
+                        </PartText>
+                    </ListOption>
+                </ListConfiguration>
+
+                <!-- Ambient text for digital -->
+                <PartText x="0" y="82" width="450" height="95" alpha="0">
+                    <Variant mode="AMBIENT" target="alpha" value="255"/>
+                    <Text align="CENTER"><Font family="roboto_light" size="88" color="#ffefefef">AND</Font></Text>
                 </PartText>
-                <PartText x="0" y="172" width="450" height="40">
-                    <Variant mode="AMBIENT" target="alpha" value="0"/>
-                    <Text align="CENTER">
-                        <Font family="roboto_light" size="36" weight="NORMAL" slant="NORMAL" color="#ffb2b2b2">MICHIGAN</Font>
-                    </Text>
+                <PartText x="0" y="172" width="450" height="40" alpha="0">
+                    <Variant mode="AMBIENT" target="alpha" value="255"/>
+                    <Text align="CENTER"><Font family="roboto_light" size="36" color="#ffefefef">MICHIGAN</Font></Text>
                 </PartText>
-                <PartText x="0" y="208" width="450" height="60">
-                    <Variant mode="AMBIENT" target="alpha" value="0"/>
-                    <Text align="CENTER">
-                        <Font family="roboto_light" size="68" weight="NORMAL" slant="NORMAL" color="#ffb2b2b2">STILL</Font>
-                    </Text>
+                <PartText x="0" y="208" width="450" height="60" alpha="0">
+                    <Variant mode="AMBIENT" target="alpha" value="255"/>
+                    <Text align="CENTER"><Font family="roboto_light" size="68" color="#ffefefef">STILL</Font></Text>
                 </PartText>
-                <PartText x="0" y="265" width="450" height="60">
-                    <Variant mode="AMBIENT" target="alpha" value="0"/>
-                    <Text align="CENTER">
-                        <Font family="roboto_light" size="56" weight="NORMAL" slant="NORMAL" color="#ffb2b2b2">SUCKS</Font>
-                    </Text>
+                <PartText x="0" y="265" width="450" height="60" alpha="0">
+                    <Variant mode="AMBIENT" target="alpha" value="255"/>
+                    <Text align="CENTER"><Font family="roboto_light" size="56" color="#ffefefef">SUCKS</Font></Text>
                 </PartText>
+
+                <!-- Block O for digital -->
+                <PartImage x="140" y="330" width="170" height="224">
+                    <Variant mode="AMBIENT" target="alpha" value="0"/>
+                    <Image resource="block_o"/>
+                </PartImage>
+                <PartImage x="140" y="330" width="170" height="224" alpha="0">
+                    <Variant mode="AMBIENT" target="alpha" value="255"/>
+                    <Image resource="block_o_ambient"/>
+                </PartImage>
             </ListOption>
-            <ListOption id="bg_gray">
-                <PartText x="0" y="82" width="450" height="95">
+
+            <!-- ==================== ANALOG STYLE ==================== -->
+            <ListOption id="style_analog">
+                <!-- Outer tick marks - 60 minute markers at screen edge -->
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="225.0" startY="16.0" endX="225.0" endY="0.0"><Stroke color="#ffe0e0e0" thickness="3"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="247.7" startY="9.2" endX="248.5" endY="1.2"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="270.1" startY="12.7" endX="271.8" endY="4.9"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="292.1" startY="18.6" endX="294.5" endY="11.0"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="313.3" startY="26.8" endX="316.5" endY="19.5"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="331.5" startY="40.5" endX="337.5" endY="30.1"><Stroke color="#ffe0e0e0" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="352.5" startY="49.4" endX="357.3" endY="43.0"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="370.2" startY="63.7" endX="375.6" endY="57.8"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="386.3" startY="79.8" endX="392.2" endY="74.4"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="400.6" startY="97.5" endX="407.0" endY="92.7"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="409.5" startY="118.5" endX="419.9" endY="112.5"><Stroke color="#ffe0e0e0" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="423.2" startY="136.7" endX="430.5" endY="133.5"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="431.4" startY="157.9" endX="439.0" endY="155.5"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="437.3" startY="179.9" endX="445.1" endY="178.2"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="440.8" startY="202.3" endX="448.8" endY="201.5"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="434.0" startY="225.0" endX="450.0" endY="225.0"><Stroke color="#ffe0e0e0" thickness="3"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="440.8" startY="247.7" endX="448.8" endY="248.5"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="437.3" startY="270.1" endX="445.1" endY="271.8"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="431.4" startY="292.1" endX="439.0" endY="294.5"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="423.2" startY="313.3" endX="430.5" endY="316.5"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="409.5" startY="331.5" endX="419.9" endY="337.5"><Stroke color="#ffe0e0e0" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="400.6" startY="352.5" endX="407.0" endY="357.3"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="386.3" startY="370.2" endX="392.2" endY="375.6"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="370.2" startY="386.3" endX="375.6" endY="392.2"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="352.5" startY="400.6" endX="357.3" endY="407.0"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="331.5" startY="409.5" endX="337.5" endY="419.9"><Stroke color="#ffe0e0e0" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="313.3" startY="423.2" endX="316.5" endY="430.5"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="292.1" startY="431.4" endX="294.5" endY="439.0"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="270.1" startY="437.3" endX="271.8" endY="445.1"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="247.7" startY="440.8" endX="248.5" endY="448.8"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="225.0" startY="434.0" endX="225.0" endY="450.0"><Stroke color="#ffe0e0e0" thickness="3"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="202.3" startY="440.8" endX="201.5" endY="448.8"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="179.9" startY="437.3" endX="178.2" endY="445.1"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="157.9" startY="431.4" endX="155.5" endY="439.0"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="136.7" startY="423.2" endX="133.5" endY="430.5"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="118.5" startY="409.5" endX="112.5" endY="419.9"><Stroke color="#ffe0e0e0" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="97.5" startY="400.6" endX="92.7" endY="407.0"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="79.8" startY="386.3" endX="74.4" endY="392.2"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="63.7" startY="370.2" endX="57.8" endY="375.6"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="49.4" startY="352.5" endX="43.0" endY="357.3"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="40.5" startY="331.5" endX="30.1" endY="337.5"><Stroke color="#ffe0e0e0" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="26.8" startY="313.3" endX="19.5" endY="316.5"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="18.6" startY="292.1" endX="11.0" endY="294.5"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="12.7" startY="270.1" endX="4.9" endY="271.8"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="9.2" startY="247.7" endX="1.2" endY="248.5"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="16.0" startY="225.0" endX="0.0" endY="225.0"><Stroke color="#ffe0e0e0" thickness="3"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="9.2" startY="202.3" endX="1.2" endY="201.5"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="12.7" startY="179.9" endX="4.9" endY="178.2"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="18.6" startY="157.9" endX="11.0" endY="155.5"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="26.8" startY="136.7" endX="19.5" endY="133.5"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="40.5" startY="118.5" endX="30.1" endY="112.5"><Stroke color="#ffe0e0e0" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="49.4" startY="97.5" endX="43.0" endY="92.7"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="63.7" startY="79.8" endX="57.8" endY="74.4"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="79.8" startY="63.7" endX="74.4" endY="57.8"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="97.5" startY="49.4" endX="92.7" endY="43.0"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="118.5" startY="40.5" endX="112.5" endY="30.1"><Stroke color="#ffe0e0e0" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="136.7" startY="26.8" endX="133.5" endY="19.5"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="157.9" startY="18.6" endX="155.5" endY="11.0"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="179.9" startY="12.7" endX="178.2" endY="4.9"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="202.3" startY="9.2" endX="201.5" endY="1.2"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
+
+                <!-- Date display at top -->
+                <ListConfiguration id="bg_color">
+                    <ListOption id="bg_black">
+                        <PartText x="0" y="95" width="450" height="30">
+                            <Variant mode="AMBIENT" target="alpha" value="0"/>
+                            <Text align="CENTER" format="EEE MMM dd"><Font family="roboto_light" size="22" color="#ffb2b2b2"/></Text>
+                        </PartText>
+                    </ListOption>
+                    <ListOption id="bg_gray">
+                        <PartText x="0" y="95" width="450" height="30">
+                            <Variant mode="AMBIENT" target="alpha" value="0"/>
+                            <Text align="CENTER" format="EEE MMM dd"><Font family="roboto_light" size="22" color="#ffb2b2b2"/></Text>
+                        </PartText>
+                    </ListOption>
+                    <ListOption id="bg_light">
+                        <PartText x="0" y="95" width="450" height="30">
+                            <Variant mode="AMBIENT" target="alpha" value="0"/>
+                            <Text align="CENTER" format="EEE MMM dd"><Font family="roboto_light" size="22" color="#ff333333"/></Text>
+                        </PartText>
+                    </ListOption>
+                    <ListOption id="bg_white">
+                        <PartText x="0" y="95" width="450" height="30">
+                            <Variant mode="AMBIENT" target="alpha" value="0"/>
+                            <Text align="CENTER" format="EEE MMM dd"><Font family="roboto_light" size="22" color="#ff333333"/></Text>
+                        </PartText>
+                    </ListOption>
+                </ListConfiguration>
+
+                <!-- Curved text - based on message and background -->
+                <ListConfiguration id="message">
+                    <ListOption id="msg_michigan">
+                        <ListConfiguration id="bg_color">
+                            <ListOption id="bg_black"><PartImage x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Image resource="text_michigan_white"/></PartImage></ListOption>
+                            <ListOption id="bg_gray"><PartImage x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Image resource="text_michigan_white"/></PartImage></ListOption>
+                            <ListOption id="bg_light"><PartImage x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Image resource="text_michigan_black"/></PartImage></ListOption>
+                            <ListOption id="bg_white"><PartImage x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Image resource="text_michigan_black"/></PartImage></ListOption>
+                        </ListConfiguration>
+                    </ListOption>
+                    <ListOption id="msg_friendship">
+                        <ListConfiguration id="bg_color">
+                            <ListOption id="bg_black"><PartImage x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Image resource="text_friendship_white"/></PartImage></ListOption>
+                            <ListOption id="bg_gray"><PartImage x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Image resource="text_friendship_white"/></PartImage></ListOption>
+                            <ListOption id="bg_light"><PartImage x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Image resource="text_friendship_black"/></PartImage></ListOption>
+                            <ListOption id="bg_white"><PartImage x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Image resource="text_friendship_black"/></PartImage></ListOption>
+                        </ListConfiguration>
+                    </ListOption>
+                </ListConfiguration>
+
+                <!-- Block O with leaf - native 39x62 dimensions -->
+                <PartImage x="206" y="280" width="39" height="62">
                     <Variant mode="AMBIENT" target="alpha" value="0"/>
-                    <Text align="CENTER">
-                        <Font family="roboto_light" size="88" weight="NORMAL" slant="NORMAL" color="#ffb2b2b2">AND</Font>
-                    </Text>
-                </PartText>
-                <PartText x="0" y="172" width="450" height="40">
+                    <Image resource="block_o_leaf"/>
+                </PartImage>
+                <PartImage x="206" y="280" width="39" height="62" alpha="0">
+                    <Variant mode="AMBIENT" target="alpha" value="255"/>
+                    <Image resource="block_o_ambient"/>
+                </PartImage>
+
+                <!-- Analog Clock Hands - centered at (225, 225) -->
+                <AnalogClock x="0" y="0" width="450" height="450">
+                    <HourHand resource="hand_hour" x="219" y="85" width="12" height="140" pivotX="0.5" pivotY="1">
+                        <Variant mode="AMBIENT" target="alpha" value="0"/>
+                    </HourHand>
+                    <MinuteHand resource="hand_minute" x="220" y="16" width="10" height="209" pivotX="0.5" pivotY="1">
+                        <Variant mode="AMBIENT" target="alpha" value="0"/>
+                    </MinuteHand>
+                    <SecondHand resource="hand_second" x="223" y="0" width="4" height="225" pivotX="0.5" pivotY="1">
+                        <Variant mode="AMBIENT" target="alpha" value="0"/>
+                    </SecondHand>
+                </AnalogClock>
+
+                <!-- Buckeye nut center -->
+                <PartImage x="205" y="205" width="40" height="40">
                     <Variant mode="AMBIENT" target="alpha" value="0"/>
-                    <Text align="CENTER">
-                        <Font family="roboto_light" size="36" weight="NORMAL" slant="NORMAL" color="#ffb2b2b2">MICHIGAN</Font>
-                    </Text>
-                </PartText>
-                <PartText x="0" y="208" width="450" height="60">
-                    <Variant mode="AMBIENT" target="alpha" value="0"/>
-                    <Text align="CENTER">
-                        <Font family="roboto_light" size="68" weight="NORMAL" slant="NORMAL" color="#ffb2b2b2">STILL</Font>
-                    </Text>
-                </PartText>
-                <PartText x="0" y="265" width="450" height="60">
-                    <Variant mode="AMBIENT" target="alpha" value="0"/>
-                    <Text align="CENTER">
-                        <Font family="roboto_light" size="56" weight="NORMAL" slant="NORMAL" color="#ffb2b2b2">SUCKS</Font>
-                    </Text>
-                </PartText>
-            </ListOption>
-            <!-- Light backgrounds: dark text -->
-            <ListOption id="bg_light">
-                <PartText x="0" y="82" width="450" height="95">
-                    <Variant mode="AMBIENT" target="alpha" value="0"/>
-                    <Text align="CENTER">
-                        <Font family="roboto_light" size="88" weight="NORMAL" slant="NORMAL" color="#ff333333">AND</Font>
-                    </Text>
-                </PartText>
-                <PartText x="0" y="172" width="450" height="40">
-                    <Variant mode="AMBIENT" target="alpha" value="0"/>
-                    <Text align="CENTER">
-                        <Font family="roboto_light" size="36" weight="NORMAL" slant="NORMAL" color="#ff333333">MICHIGAN</Font>
-                    </Text>
-                </PartText>
-                <PartText x="0" y="208" width="450" height="60">
-                    <Variant mode="AMBIENT" target="alpha" value="0"/>
-                    <Text align="CENTER">
-                        <Font family="roboto_light" size="68" weight="NORMAL" slant="NORMAL" color="#ff333333">STILL</Font>
-                    </Text>
-                </PartText>
-                <PartText x="0" y="265" width="450" height="60">
-                    <Variant mode="AMBIENT" target="alpha" value="0"/>
-                    <Text align="CENTER">
-                        <Font family="roboto_light" size="56" weight="NORMAL" slant="NORMAL" color="#ff333333">SUCKS</Font>
-                    </Text>
-                </PartText>
-            </ListOption>
-            <ListOption id="bg_white">
-                <PartText x="0" y="82" width="450" height="95">
-                    <Variant mode="AMBIENT" target="alpha" value="0"/>
-                    <Text align="CENTER">
-                        <Font family="roboto_light" size="88" weight="NORMAL" slant="NORMAL" color="#ff333333">AND</Font>
-                    </Text>
-                </PartText>
-                <PartText x="0" y="172" width="450" height="40">
-                    <Variant mode="AMBIENT" target="alpha" value="0"/>
-                    <Text align="CENTER">
-                        <Font family="roboto_light" size="36" weight="NORMAL" slant="NORMAL" color="#ff333333">MICHIGAN</Font>
-                    </Text>
-                </PartText>
-                <PartText x="0" y="208" width="450" height="60">
-                    <Variant mode="AMBIENT" target="alpha" value="0"/>
-                    <Text align="CENTER">
-                        <Font family="roboto_light" size="68" weight="NORMAL" slant="NORMAL" color="#ff333333">STILL</Font>
-                    </Text>
-                </PartText>
-                <PartText x="0" y="265" width="450" height="60">
-                    <Variant mode="AMBIENT" target="alpha" value="0"/>
-                    <Text align="CENTER">
-                        <Font family="roboto_light" size="56" weight="NORMAL" slant="NORMAL" color="#ff333333">SUCKS</Font>
-                    </Text>
-                </PartText>
+                    <Image resource="nut_dark"/>
+                </PartImage>
             </ListOption>
         </ListConfiguration>
-
-        <!-- Ambient text (always white on black) -->
-        <PartText x="0" y="82" width="450" height="95" alpha="0">
-            <Variant mode="AMBIENT" target="alpha" value="255"/>
-            <Text align="CENTER">
-                <Font family="roboto_light" size="88" weight="NORMAL" slant="NORMAL" color="#ffefefef">AND</Font>
-            </Text>
-        </PartText>
-        <PartText x="0" y="172" width="450" height="40" alpha="0">
-            <Variant mode="AMBIENT" target="alpha" value="255"/>
-            <Text align="CENTER">
-                <Font family="roboto_light" size="36" weight="NORMAL" slant="NORMAL" color="#ffefefef">MICHIGAN</Font>
-            </Text>
-        </PartText>
-        <PartText x="0" y="208" width="450" height="60" alpha="0">
-            <Variant mode="AMBIENT" target="alpha" value="255"/>
-            <Text align="CENTER">
-                <Font family="roboto_light" size="68" weight="NORMAL" slant="NORMAL" color="#ffefefef">STILL</Font>
-            </Text>
-        </PartText>
-        <PartText x="0" y="265" width="450" height="60" alpha="0">
-            <Variant mode="AMBIENT" target="alpha" value="255"/>
-            <Text align="CENTER">
-                <Font family="roboto_light" size="56" weight="NORMAL" slant="NORMAL" color="#ffefefef">SUCKS</Font>
-            </Text>
-        </PartText>
-
-        <!-- Block O - large, centered -->
-        <PartImage x="140" y="330" width="170" height="224">
-            <Variant mode="AMBIENT" target="alpha" value="0"/>
-            <Image resource="block_o"/>
-        </PartImage>
-
-        <!-- Block O - Ambient mode -->
-        <PartImage x="140" y="330" width="170" height="224" alpha="0">
-            <Variant mode="AMBIENT" target="alpha" value="255"/>
-            <Image resource="block_o_ambient"/>
-        </PartImage>
     </Scene>
 </WatchFace>

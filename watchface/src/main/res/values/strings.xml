@@ -2,6 +2,9 @@
 <resources>
     <string name="watch_face_name">Time &amp; Change</string>
     <string name="background_setting">Background</string>
+    <string name="style_setting">Style</string>
+    <string name="style_digital">Digital</string>
+    <string name="style_analog">Analog</string>
     <string name="bg_black">Black</string>
     <string name="bg_gray">Gray</string>
     <string name="bg_light">Light Gray</string>
@@ -10,4 +13,11 @@
     <string name="flavor_dark_gray">Dark Gray</string>
     <string name="flavor_light_gray">Light Gray</string>
     <string name="flavor_light">Light</string>
+    <string name="flavor_digital_dark">Digital Dark</string>
+    <string name="flavor_digital_light">Digital Light</string>
+    <string name="flavor_analog_dark">Analog Dark</string>
+    <string name="flavor_analog_light">Analog Light</string>
+    <string name="message_setting">Message</string>
+    <string name="msg_michigan">Michigan Still Sucks</string>
+    <string name="msg_friendship">How Firm Thy Friendship</string>
 </resources>
