@@ -354,7 +354,7 @@
                 </PartImage>
                 <PartImage x="206" y="280" width="39" height="62" alpha="0">
                     <Variant mode="AMBIENT" target="alpha" value="255"/>
-                    <Image resource="block_o_ambient"/>
+                    <Image resource="block_o_solid"/>
                 </PartImage>
 
                 <!-- Analog Clock Hands - centered at (225, 225) -->
