@@ -4,10 +4,11 @@
     <Metadata key="PREVIEW_TIME" value="10:56:00"/>
 
     <UserConfigurations>
-        <!-- Style: Digital or Analog -->
+        <!-- Style: Digital, Analog, or Block O -->
         <ListConfiguration id="watch_style" displayName="style_setting" icon="background_icon" defaultValue="style_digital" screenReaderText="style_setting">
             <ListOption id="style_digital" displayName="style_digital" icon="background_icon" screenReaderText="style_digital"/>
             <ListOption id="style_analog" displayName="style_analog" icon="background_icon" screenReaderText="style_analog"/>
+            <ListOption id="style_blocko" displayName="style_blocko" icon="background_icon" screenReaderText="style_blocko"/>
         </ListConfiguration>
 
         <!-- Background color -->
@@ -371,6 +372,45 @@
                     <Variant mode="AMBIENT" target="alpha" value="0"/>
                     <Image resource="nut_dark"/>
                 </PartImage>
+            </ListOption>
+
+            <!-- ==================== BLOCK O STYLE ==================== -->
+            <ListOption id="style_blocko">
+                <!-- Solid gray background - hidden in ambient -->
+                <PartDraw x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0"/>
+                    <Arc centerX="225" centerY="225" width="450" height="450" startAngle="0" endAngle="360">
+                        <Fill color="#ffc0c0c0"/>
+                    </Arc>
+                </PartDraw>
+
+                <!-- Large Block O centered - hidden in ambient -->
+                <PartImage x="85" y="40" width="280" height="370">
+                    <Variant mode="AMBIENT" target="alpha" value="0"/>
+                    <Image resource="block_o_large"/>
+                </PartImage>
+
+                <!-- Normal mode hands (dark) - hidden in ambient -->
+                <AnalogClock x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0"/>
+                    <HourHand resource="hand_hour" x="209" y="125" width="32" height="100" pivotX="0.5" pivotY="1"/>
+                    <MinuteHand resource="hand_minute" x="211" y="80" width="28" height="145" pivotX="0.5" pivotY="1"/>
+                    <SecondHand resource="hand_second_dark" x="220" y="70" width="10" height="155" pivotX="0.5" pivotY="1"/>
+                </AnalogClock>
+
+                <!-- Ambient mode hands (white) - shown only in ambient -->
+                <AnalogClock x="0" y="0" width="450" height="450" alpha="0">
+                    <Variant mode="AMBIENT" target="alpha" value="255"/>
+                    <HourHand resource="hand_hour_white" x="209" y="125" width="32" height="100" pivotX="0.5" pivotY="1"/>
+                    <MinuteHand resource="hand_minute_white" x="211" y="80" width="28" height="145" pivotX="0.5" pivotY="1"/>
+                </AnalogClock>
+
+                <!-- Off-white center pivot - visible in both modes -->
+                <PartDraw x="0" y="0" width="450" height="450">
+                    <Arc centerX="225" centerY="225" width="36" height="36" startAngle="0" endAngle="360">
+                        <Fill color="#ffefefef"/>
+                    </Arc>
+                </PartDraw>
             </ListOption>
         </ListConfiguration>
     </Scene>

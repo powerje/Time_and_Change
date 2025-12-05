@@ -5,6 +5,7 @@
     <string name="style_setting">Style</string>
     <string name="style_digital">Digital</string>
     <string name="style_analog">Analog</string>
+    <string name="style_blocko">Block O</string>
     <string name="bg_black">Black</string>
     <string name="bg_gray">Gray</string>
     <string name="bg_light">Light Gray</string>
