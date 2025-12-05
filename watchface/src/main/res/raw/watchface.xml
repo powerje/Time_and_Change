@@ -198,7 +198,13 @@
             <!-- ==================== ANALOG STYLE ==================== -->
             <ListOption id="style_analog">
                 <!-- Outer tick marks - 60 minute markers at screen edge -->
-                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="225.0" startY="16.0" endX="225.0" endY="0.0"><Stroke color="#ffe0e0e0" thickness="3"/></Line></PartDraw>
+                <!-- 12 o'clock - color varies by background -->
+                <ListConfiguration id="bg_color">
+                    <ListOption id="bg_black"><PartDraw x="0" y="0" width="450" height="450"><Line startX="225.0" startY="16.0" endX="225.0" endY="0.0"><Stroke color="#ffe0e0e0" thickness="3"/></Line></PartDraw></ListOption>
+                    <ListOption id="bg_gray"><PartDraw x="0" y="0" width="450" height="450"><Line startX="225.0" startY="16.0" endX="225.0" endY="0.0"><Stroke color="#ffe0e0e0" thickness="3"/></Line></PartDraw></ListOption>
+                    <ListOption id="bg_light"><PartDraw x="0" y="0" width="450" height="450"><Line startX="225.0" startY="16.0" endX="225.0" endY="0.0"><Stroke color="#ff000000" thickness="3"/></Line></PartDraw></ListOption>
+                    <ListOption id="bg_white"><PartDraw x="0" y="0" width="450" height="450"><Line startX="225.0" startY="16.0" endX="225.0" endY="0.0"><Stroke color="#ff000000" thickness="3"/></Line></PartDraw></ListOption>
+                </ListConfiguration>
                 <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="247.7" startY="9.2" endX="248.5" endY="1.2"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
                 <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="270.1" startY="12.7" endX="271.8" endY="4.9"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
                 <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="292.1" startY="18.6" endX="294.5" endY="11.0"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
@@ -213,7 +219,13 @@
                 <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="431.4" startY="157.9" endX="439.0" endY="155.5"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
                 <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="437.3" startY="179.9" endX="445.1" endY="178.2"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
                 <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="440.8" startY="202.3" endX="448.8" endY="201.5"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
-                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="434.0" startY="225.0" endX="450.0" endY="225.0"><Stroke color="#ffe0e0e0" thickness="3"/></Line></PartDraw>
+                <!-- 3 o'clock - color varies by background -->
+                <ListConfiguration id="bg_color">
+                    <ListOption id="bg_black"><PartDraw x="0" y="0" width="450" height="450"><Line startX="434.0" startY="225.0" endX="450.0" endY="225.0"><Stroke color="#ffe0e0e0" thickness="3"/></Line></PartDraw></ListOption>
+                    <ListOption id="bg_gray"><PartDraw x="0" y="0" width="450" height="450"><Line startX="434.0" startY="225.0" endX="450.0" endY="225.0"><Stroke color="#ffe0e0e0" thickness="3"/></Line></PartDraw></ListOption>
+                    <ListOption id="bg_light"><PartDraw x="0" y="0" width="450" height="450"><Line startX="434.0" startY="225.0" endX="450.0" endY="225.0"><Stroke color="#ff000000" thickness="3"/></Line></PartDraw></ListOption>
+                    <ListOption id="bg_white"><PartDraw x="0" y="0" width="450" height="450"><Line startX="434.0" startY="225.0" endX="450.0" endY="225.0"><Stroke color="#ff000000" thickness="3"/></Line></PartDraw></ListOption>
+                </ListConfiguration>
                 <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="440.8" startY="247.7" endX="448.8" endY="248.5"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
                 <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="437.3" startY="270.1" endX="445.1" endY="271.8"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
                 <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="431.4" startY="292.1" endX="439.0" endY="294.5"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
@@ -228,7 +240,13 @@
                 <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="292.1" startY="431.4" endX="294.5" endY="439.0"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
                 <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="270.1" startY="437.3" endX="271.8" endY="445.1"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
                 <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="247.7" startY="440.8" endX="248.5" endY="448.8"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
-                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="225.0" startY="434.0" endX="225.0" endY="450.0"><Stroke color="#ffe0e0e0" thickness="3"/></Line></PartDraw>
+                <!-- 6 o'clock - color varies by background -->
+                <ListConfiguration id="bg_color">
+                    <ListOption id="bg_black"><PartDraw x="0" y="0" width="450" height="450"><Line startX="225.0" startY="434.0" endX="225.0" endY="450.0"><Stroke color="#ffe0e0e0" thickness="3"/></Line></PartDraw></ListOption>
+                    <ListOption id="bg_gray"><PartDraw x="0" y="0" width="450" height="450"><Line startX="225.0" startY="434.0" endX="225.0" endY="450.0"><Stroke color="#ffe0e0e0" thickness="3"/></Line></PartDraw></ListOption>
+                    <ListOption id="bg_light"><PartDraw x="0" y="0" width="450" height="450"><Line startX="225.0" startY="434.0" endX="225.0" endY="450.0"><Stroke color="#ff000000" thickness="3"/></Line></PartDraw></ListOption>
+                    <ListOption id="bg_white"><PartDraw x="0" y="0" width="450" height="450"><Line startX="225.0" startY="434.0" endX="225.0" endY="450.0"><Stroke color="#ff000000" thickness="3"/></Line></PartDraw></ListOption>
+                </ListConfiguration>
                 <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="202.3" startY="440.8" endX="201.5" endY="448.8"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
                 <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="179.9" startY="437.3" endX="178.2" endY="445.1"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
                 <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="157.9" startY="431.4" endX="155.5" endY="439.0"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
@@ -243,7 +261,13 @@
                 <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="18.6" startY="292.1" endX="11.0" endY="294.5"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
                 <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="12.7" startY="270.1" endX="4.9" endY="271.8"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
                 <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="9.2" startY="247.7" endX="1.2" endY="248.5"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
-                <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="16.0" startY="225.0" endX="0.0" endY="225.0"><Stroke color="#ffe0e0e0" thickness="3"/></Line></PartDraw>
+                <!-- 9 o'clock - color varies by background -->
+                <ListConfiguration id="bg_color">
+                    <ListOption id="bg_black"><PartDraw x="0" y="0" width="450" height="450"><Line startX="16.0" startY="225.0" endX="0.0" endY="225.0"><Stroke color="#ffe0e0e0" thickness="3"/></Line></PartDraw></ListOption>
+                    <ListOption id="bg_gray"><PartDraw x="0" y="0" width="450" height="450"><Line startX="16.0" startY="225.0" endX="0.0" endY="225.0"><Stroke color="#ffe0e0e0" thickness="3"/></Line></PartDraw></ListOption>
+                    <ListOption id="bg_light"><PartDraw x="0" y="0" width="450" height="450"><Line startX="16.0" startY="225.0" endX="0.0" endY="225.0"><Stroke color="#ff000000" thickness="3"/></Line></PartDraw></ListOption>
+                    <ListOption id="bg_white"><PartDraw x="0" y="0" width="450" height="450"><Line startX="16.0" startY="225.0" endX="0.0" endY="225.0"><Stroke color="#ff000000" thickness="3"/></Line></PartDraw></ListOption>
+                </ListConfiguration>
                 <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="9.2" startY="202.3" endX="1.2" endY="201.5"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
                 <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="12.7" startY="179.9" endX="4.9" endY="178.2"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
                 <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="18.6" startY="157.9" endX="11.0" endY="155.5"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
@@ -335,12 +359,8 @@
 
                 <!-- Analog Clock Hands - centered at (225, 225) -->
                 <AnalogClock x="0" y="0" width="450" height="450">
-                    <HourHand resource="hand_hour" x="219" y="85" width="12" height="140" pivotX="0.5" pivotY="1">
-                        <Variant mode="AMBIENT" target="alpha" value="0"/>
-                    </HourHand>
-                    <MinuteHand resource="hand_minute" x="220" y="16" width="10" height="209" pivotX="0.5" pivotY="1">
-                        <Variant mode="AMBIENT" target="alpha" value="0"/>
-                    </MinuteHand>
+                    <HourHand resource="hand_hour" x="219" y="85" width="12" height="140" pivotX="0.5" pivotY="1"/>
+                    <MinuteHand resource="hand_minute" x="220" y="16" width="10" height="209" pivotX="0.5" pivotY="1"/>
                     <SecondHand resource="hand_second" x="223" y="0" width="4" height="225" pivotX="0.5" pivotY="1">
                         <Variant mode="AMBIENT" target="alpha" value="0"/>
                     </SecondHand>
