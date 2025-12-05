@@ -1,6 +1,6 @@
 Time changes. Some things don't.
 
-A minimalist watch face for Ohio State fans. Displays the current time in scarlet, a timeless reminder about That Team Up North, and the Block O.
+A minimalist Wear OS watch face for Ohio State fans. Displays the current time in scarlet, a timeless reminder about That Team Up North, and the Block O.
 
 Features:
 • Clean, readable digital time display

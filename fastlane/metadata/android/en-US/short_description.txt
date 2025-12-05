@@ -1,1 +1,1 @@
-A Buckeye watch face that tells the time and an eternal truth about Michigan.
+A Wear OS watch face for Buckeyes that tells the time and an eternal truth about Michigan.
