@@ -259,15 +259,49 @@
                 <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="179.9" startY="12.7" endX="178.2" endY="4.9"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
                 <PartDraw x="0" y="0" width="450" height="450"><Variant mode="AMBIENT" target="alpha" value="0"/><Line startX="202.3" startY="9.2" endX="201.5" endY="1.2"><Stroke color="#ff808080" thickness="2"/></Line></PartDraw>
 
-                <!-- Date display at top -->
-                <PartText x="0" y="95" width="450" height="30">
-                    <Variant mode="AMBIENT" target="alpha" value="0"/>
-                    <Text align="CENTER">
-                        <Font family="roboto" size="20" weight="LIGHT" slant="NORMAL" color="#ffb2b2b2">
-                            <Template>%S %S %02d<Parameter expression="[DAY_OF_WEEK_S]"/><Parameter expression="[MONTH_S]"/><Parameter expression="[DAY_OF_MONTH] + 1"/></Template>
-                        </Font>
-                    </Text>
-                </PartText>
+                <!-- Date display at top - color varies by background -->
+                <ListConfiguration id="bg_color">
+                    <ListOption id="bg_black">
+                        <PartText x="0" y="95" width="450" height="30">
+                            <Variant mode="AMBIENT" target="alpha" value="0"/>
+                            <Text align="CENTER">
+                                <Font family="roboto" size="20" weight="LIGHT" slant="NORMAL" color="#ffe0e0e0">
+                                    <Template>%S %S %02d<Parameter expression="[DAY_OF_WEEK_S]"/><Parameter expression="[MONTH_S]"/><Parameter expression="[DAY_OF_MONTH] + 1"/></Template>
+                                </Font>
+                            </Text>
+                        </PartText>
+                    </ListOption>
+                    <ListOption id="bg_gray">
+                        <PartText x="0" y="95" width="450" height="30">
+                            <Variant mode="AMBIENT" target="alpha" value="0"/>
+                            <Text align="CENTER">
+                                <Font family="roboto" size="20" weight="LIGHT" slant="NORMAL" color="#ffe0e0e0">
+                                    <Template>%S %S %02d<Parameter expression="[DAY_OF_WEEK_S]"/><Parameter expression="[MONTH_S]"/><Parameter expression="[DAY_OF_MONTH] + 1"/></Template>
+                                </Font>
+                            </Text>
+                        </PartText>
+                    </ListOption>
+                    <ListOption id="bg_light">
+                        <PartText x="0" y="95" width="450" height="30">
+                            <Variant mode="AMBIENT" target="alpha" value="0"/>
+                            <Text align="CENTER">
+                                <Font family="roboto" size="20" weight="LIGHT" slant="NORMAL" color="#ff000000">
+                                    <Template>%S %S %02d<Parameter expression="[DAY_OF_WEEK_S]"/><Parameter expression="[MONTH_S]"/><Parameter expression="[DAY_OF_MONTH] + 1"/></Template>
+                                </Font>
+                            </Text>
+                        </PartText>
+                    </ListOption>
+                    <ListOption id="bg_white">
+                        <PartText x="0" y="95" width="450" height="30">
+                            <Variant mode="AMBIENT" target="alpha" value="0"/>
+                            <Text align="CENTER">
+                                <Font family="roboto" size="20" weight="LIGHT" slant="NORMAL" color="#ff000000">
+                                    <Template>%S %S %02d<Parameter expression="[DAY_OF_WEEK_S]"/><Parameter expression="[MONTH_S]"/><Parameter expression="[DAY_OF_MONTH] + 1"/></Template>
+                                </Font>
+                            </Text>
+                        </PartText>
+                    </ListOption>
+                </ListConfiguration>
 
                 <!-- Curved text - based on message and background -->
                 <ListConfiguration id="message">
