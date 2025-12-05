@@ -263,7 +263,7 @@
                 <PartText x="0" y="95" width="450" height="30">
                     <Variant mode="AMBIENT" target="alpha" value="0"/>
                     <Text align="CENTER">
-                        <Font family="roboto_condensed_light" size="22" weight="NORMAL" slant="NORMAL" color="#ffb2b2b2">
+                        <Font family="roboto" size="20" weight="LIGHT" slant="NORMAL" color="#ffb2b2b2">
                             <Template>%S %S %02d<Parameter expression="[DAY_OF_WEEK_S]"/><Parameter expression="[MONTH_S]"/><Parameter expression="[DAY_OF_MONTH] + 1"/></Template>
                         </Font>
                     </Text>
