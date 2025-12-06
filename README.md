@@ -1,5 +1,7 @@
 # Time Change
 
+[![Validate WFF](https://github.com/powerje/Time_and_Change/actions/workflows/validate-wff.yml/badge.svg)](https://github.com/powerje/Time_and_Change/actions/workflows/validate-wff.yml)
+
 Watch faces for Wear OS using the [Watch Face Format](https://developer.android.com/training/wearables/wff).
 
 Requires Wear OS 4+.

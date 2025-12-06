@@ -1,0 +1,37 @@
+name: Validate WFF
+
+on:
+  push:
+    paths:
+      - 'watchface/src/main/res/raw/watchface.xml'
+      - '.github/workflows/validate-wff.yml'
+  pull_request:
+    paths:
+      - 'watchface/src/main/res/raw/watchface.xml'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Clone WFF validator
+        run: git clone --depth 1 https://github.com/google/watchface.git /tmp/watchface
+
+      - name: Build WFF validator
+        working-directory: /tmp/watchface/play-validations
+        run: ./gradlew :validator:executable-jar
+
+      - name: Validate watchface.xml
+        run: |
+          java -jar /tmp/watchface/third_party/wff/specification/validator/build/libs/wff-validator.jar \
+            2 \
+            watchface/src/main/res/raw/watchface.xml
