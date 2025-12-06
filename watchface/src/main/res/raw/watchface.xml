@@ -48,7 +48,7 @@
         </Flavors>
     </UserConfigurations>
 
-    <Scene>
+    <Scene backgroundColor="#ff000000">
         <!-- Background selection -->
         <ListConfiguration id="bg_color">
             <ListOption id="bg_black">
