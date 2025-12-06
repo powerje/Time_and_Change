@@ -401,6 +401,12 @@
                         <MinuteHand resource="hand_minute_white" x="211" y="80" width="28" height="145" pivotX="0.5" pivotY="1"/>
                     </AnalogClock>
 
+                    <!-- Ambient mode tick marks - 12, 3, 6, 9 o'clock -->
+                    <PartDraw x="0" y="0" width="450" height="450" alpha="0"><Variant mode="AMBIENT" target="alpha" value="255"/><Line startX="225.0" startY="16.0" endX="225.0" endY="0.0"><Stroke color="#ffe0e0e0" thickness="3"/></Line></PartDraw>
+                    <PartDraw x="0" y="0" width="450" height="450" alpha="0"><Variant mode="AMBIENT" target="alpha" value="255"/><Line startX="434.0" startY="225.0" endX="450.0" endY="225.0"><Stroke color="#ffe0e0e0" thickness="3"/></Line></PartDraw>
+                    <PartDraw x="0" y="0" width="450" height="450" alpha="0"><Variant mode="AMBIENT" target="alpha" value="255"/><Line startX="225.0" startY="434.0" endX="225.0" endY="450.0"><Stroke color="#ffe0e0e0" thickness="3"/></Line></PartDraw>
+                    <PartDraw x="0" y="0" width="450" height="450" alpha="0"><Variant mode="AMBIENT" target="alpha" value="255"/><Line startX="16.0" startY="225.0" endX="0.0" endY="225.0"><Stroke color="#ffe0e0e0" thickness="3"/></Line></PartDraw>
+
                     <!-- Off-white center pivot - visible in both modes -->
                     <PartDraw x="0" y="0" width="450" height="450">
                         <Ellipse x="207" y="207" width="36" height="36">
