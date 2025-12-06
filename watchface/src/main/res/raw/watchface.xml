@@ -48,11 +48,16 @@
         </Flavors>
     </UserConfigurations>
 
-    <Scene backgroundColor="#ff000000">
+    <Scene>
         <!-- Background selection -->
         <ListConfiguration id="bg_color">
             <ListOption id="bg_black">
-                <Group name="bg_black_noop" x="0" y="0" width="0" height="0"/>
+                <PartDraw x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0"/>
+                    <Ellipse x="0" y="0" width="450" height="450">
+                        <Fill color="#ff000000"/>
+                    </Ellipse>
+                </PartDraw>
             </ListOption>
             <ListOption id="bg_gray">
                 <PartDraw x="0" y="0" width="450" height="450">
